@@ -8,12 +8,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.List;
 
 /*
-* 添加XML转换
+* 添加Properties转换
 * */
-//@Configuration
-public class WebConfig implements WebMvcConfigurer {
+@Configuration
+public class WebConfig1 implements WebMvcConfigurer {
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-        converters.set(0, new MappingJackson2XmlHttpMessageConverter());
+        converters.add(new PropertiesHttpMessageConverter());
+        converters.add(new BytesHttpMessageConvert());
+//        converters.set(0, new BytesHttpMessageConvert());
     }
 }

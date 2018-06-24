@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script>
+            window.onload = function(){
+                var url = "http://localhost:8080/bytes";
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', url, true);
+                xhr.setRequestHeader("Accept", "application/bytes");
+                xhr.responseType = "arraybuffer";
+                xhr.onreadystatechange = function(res) {
+                    // readyState == 4说明请求已完成
+                    if (xhr.readyState == 4 && xhr.status == 200 || xhr.status == 304) {
+                        // 从服务器获得数据
+                        console.log("getresponse");
+                        var arrayBuffer = xhr.response;
+                        if (arrayBuffer) {
+                            // var byteArray = new Uint8Array(arrayBuffer);
+                            // console.log(byteArray);
+                            // for (var i = 0; i < byteArray.byteLength; i++) {
+                            //     console.log(byteArray[i]);
+                            // }
+                            var byteArray = new Float32Array(arrayBuffer);
+                            console.log(byteArray);
+                        }
+                    }
+                };
+                xhr.send();
+            }
+        </script>
+    </head>
+</html>
