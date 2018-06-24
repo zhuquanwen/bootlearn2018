@@ -11,7 +11,6 @@ import org.springframework.http.converter.HttpMessageNotWritableException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.PortUnreachableException;
 import java.nio.charset.Charset;
 import java.util.Properties;
 
