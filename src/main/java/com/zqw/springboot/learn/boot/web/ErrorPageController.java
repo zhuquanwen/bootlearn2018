@@ -13,4 +13,8 @@ public class ErrorPageController {
     public String to404(){
         return "404";
     }
+    @RequestMapping("/400")
+    public String to400(){
+        return "400";
+    }
 }

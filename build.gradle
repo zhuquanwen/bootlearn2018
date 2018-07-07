@@ -23,10 +23,16 @@ repositories {
     mavenCentral()
 }
 
+//jar{
+//    manifest{
+//        attributes 'Main-Class': 'com.zqw.springboot.learn.boot.BootApplication'
+//    }
+//}
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.boot:spring-boot-starter-validation')
     compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.9.6'
 }
