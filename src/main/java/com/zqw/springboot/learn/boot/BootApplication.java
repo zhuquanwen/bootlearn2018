@@ -1,6 +1,9 @@
 package com.zqw.springboot.learn.boot;
 
 import com.zqw.springboot.learn.boot.interceptor.MyInterceptor;
+import com.zqw.springboot.learn.boot.listener.MyCustomListener;
+import com.zqw.springboot.learn.boot.listener.MyStartedListener;
+import org.apache.catalina.startup.Bootstrap;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -14,7 +17,9 @@ import java.util.Random;
 public class BootApplication extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
-        SpringApplication.run(BootApplication.class, args);
+        SpringApplication springApplication = new SpringApplication(BootApplication.class);
+        springApplication.addListeners(new MyStartedListener(), new MyCustomListener());
+        springApplication.run( args);
     }
 
     @Override
