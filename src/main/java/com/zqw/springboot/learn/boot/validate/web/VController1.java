@@ -1,6 +1,7 @@
 package com.zqw.springboot.learn.boot.validate.web;
 
 import com.zqw.springboot.learn.boot.validate.bean.Employee;
+import com.zqw.springboot.learn.boot.validate.custom.CarNoConstraint;
 import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -35,5 +36,10 @@ public class VController1 {
     @GetMapping("/param")
     public Employee get1(@Size(min=3, max=5) String name, @Min(3) @Max(5) int id ){
         return new Employee(id, name);
+    }
+
+    @GetMapping("/carNo/param")
+    public String get1(@CarNoConstraint String carNo ){
+        return carNo;
     }
 }
