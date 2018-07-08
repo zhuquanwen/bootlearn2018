@@ -1,6 +1,7 @@
 package com.zqw.springboot.learn.boot.web;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
@@ -14,6 +15,7 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.Path;
 import java.util.List;
 import java.util.Set;
+import java.util.StringTokenizer;
 
 @RestControllerAdvice
 public class ExceptionAdivisor {
@@ -32,6 +34,7 @@ public class ExceptionAdivisor {
                 result.append(field).append(",").append(msg).append(";");
             }
         }
+        
         return result.toString();
     }
 
